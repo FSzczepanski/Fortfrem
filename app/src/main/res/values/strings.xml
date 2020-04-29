@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">Fortfrem</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">Powiadomienia</string>
+    <string name="offers_tab_title">Oferty</string>
+    <string name="favourites_tab_title">Ulubione</string>
+    <string name="preferences_tab_title">Preferencje</string>
+    <string name="profile_tab_title">Konto</string>
+    <string name="example_popover_message">Example popover message</string>
+    <string name="default_popover_accept">OK</string>
+    <string name="offer_image">Offer image</string>
+    <string name="store_image">Store image</string>
+    <string name="app_logo">App Logo</string>
 </resources>
