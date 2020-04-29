@@ -3,4 +3,11 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="error_popover_background">#444</color>
+    <color name="bottom_popover_text">#fff</color>
+    <color name="bottom_popover_accept">#da0</color>
+    <color name="bottom_popover_background">#444</color>
+    <color name="borderGray">#ddd</color>
+    <color name="ripple_color">#ddd</color>
+    <color name="discount_label">#a00</color>
 </resources>
