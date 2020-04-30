@@ -10,4 +10,6 @@
     <string name="offer_image">Offer image</string>
     <string name="store_image">Store image</string>
     <string name="app_logo">App Logo</string>
+    <string name="preferencesStartMessage">W tej zakładce możesz ustawić własne preferencje ofert wyświetlanych na stronie głównej</string>
+    <string name="preferencesDefaultTitle">Tytuł</string>
 </resources>
