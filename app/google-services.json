@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "509628108387",
+    "firebase_url": "https://fortfrem-9252c.firebaseio.com",
+    "project_id": "fortfrem-9252c",
+    "storage_bucket": "fortfrem-9252c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509628108387:android:7e4d6d23b5e483b050b256",
+        "android_client_info": {
+          "package_name": "pl.aib.fortfrem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "509628108387-tb63eepekm7007mbcqu6tdkk8co2u7u7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyTiDyixbg66op5sP9BA63BdG4LfPTR4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "509628108387-tb63eepekm7007mbcqu6tdkk8co2u7u7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
