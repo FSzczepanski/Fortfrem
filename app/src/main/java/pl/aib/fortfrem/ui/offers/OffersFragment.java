@@ -19,6 +19,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -30,8 +32,9 @@ import pl.aib.fortfrem.data.entity.Offer;
 import pl.aib.fortfrem.ui.FortfremFragment;
 import pl.aib.fortfrem.ui.favourites.FavouritesViewModel;
 import pl.aib.fortfrem.ui.list.offers.OffersAdapter;
+import pl.aib.fortfrem.ui.list.offers.OnOfferSelectedListener;
 
-public class OffersFragment extends FortfremFragment {
+public class OffersFragment extends FortfremFragment implements OnOfferSelectedListener {
     private OffersViewModel viewModel;
     private SwipeRefreshLayout refreshLayout;
     private View indicatorLayer;
@@ -60,7 +63,7 @@ public class OffersFragment extends FortfremFragment {
         this.list.setLayoutManager(manager);
         this.list.setHasFixedSize(false);
         if(getContext() != null) {
-            OffersAdapter adapter = new OffersAdapter(getContext());
+            OffersAdapter adapter = new OffersAdapter(getContext(), this);
             this.list.setAdapter(adapter);
         }
     }
@@ -78,6 +81,9 @@ public class OffersFragment extends FortfremFragment {
     @Override
     public void onStart() {
         super.onStart();
+        if(this.navController == null && getView() != null) {
+            this.navController = Navigation.findNavController(getView());
+        }
         this.viewModel.getOffers().observe(this, this::onOffersSetUpdated);
         this.viewModel.getInitialized().observe(this, this::onInitializeStatusChanged);
         this.viewModel.getPopoverMessage().observe(this, this::onPopoverMessageChanged);
@@ -100,7 +106,7 @@ public class OffersFragment extends FortfremFragment {
 
     private void checkListAdapter() {
         if(this.list.getAdapter() == null && getContext() != null) {
-            OffersAdapter adapter = new OffersAdapter(getContext());
+            OffersAdapter adapter = new OffersAdapter(getContext(), this);
             this.list.setAdapter(adapter);
         }
     }
@@ -108,6 +114,7 @@ public class OffersFragment extends FortfremFragment {
     private void onInitializeStatusChanged(boolean initialized) {
         int visibility = initialized ? View.GONE : View.VISIBLE;
         this.indicatorLayer.setVisibility(visibility);
+
     }
 
     private void onPopoverMessageChanged(@Nullable Integer messageId) {
@@ -122,6 +129,16 @@ public class OffersFragment extends FortfremFragment {
     private void onRefresh() {
         if(getContext() != null) {
             this.viewModel.refreshOffers(getContext());
+        }
+    }
+
+    @Override
+    public void onOfferSelected(Offer offer) {
+        String offerId = offer.getOid();
+        OffersFragmentDirections.DetailsAction action = OffersFragmentDirections.detailsAction();
+        action.setOid(offerId);
+        if(this.navController != null) {
+            this.navController.navigate(action);
         }
     }
 }

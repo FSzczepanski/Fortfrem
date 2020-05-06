@@ -6,8 +6,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 
 public class FortfremFragment extends Fragment {
+
+    @Nullable
+    protected NavController navController;
 
     @Nullable
     protected View bottomPopover = null;

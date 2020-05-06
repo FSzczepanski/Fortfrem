@@ -15,8 +15,11 @@ import pl.aib.fortfrem.R;
 import pl.aib.fortfrem.data.entity.Offer;
 
 public class OfferViewHolder extends RecyclerView.ViewHolder {
-    public OfferViewHolder(@NonNull View itemView) {
+    private OnOfferSelectedListener selectedListener;
+
+    public OfferViewHolder(@NonNull View itemView, OnOfferSelectedListener selectedListener) {
         super(itemView);
+        this.selectedListener = selectedListener;
     }
 
     public void setData(Offer offer) {
@@ -43,5 +46,7 @@ public class OfferViewHolder extends RecyclerView.ViewHolder {
         storeName.setText(offer.getStoreName());
         price.setText(offer.getPricePLNString());
         discount.setText(offer.getDiscountPercentageString());
+
+        this.itemView.setOnClickListener(v -> selectedListener.onOfferSelected(offer));
     }
 }

@@ -10,4 +10,5 @@
     <color name="borderGray">#ddd</color>
     <color name="ripple_color">#ddd</color>
     <color name="discount_label">#a00</color>
+    <color name="link_color">#009FF8</color>
 </resources>

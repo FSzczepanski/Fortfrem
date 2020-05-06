@@ -1,30 +1,29 @@
-package pl.aib.fortfrem.ui.profile;
+package pl.aib.fortfrem.ui.offerdetails;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import pl.aib.fortfrem.R;
 import pl.aib.fortfrem.ui.FortfremFragment;
-import pl.aib.fortfrem.ui.favourites.FavouritesViewModel;
-import pl.aib.fortfrem.ui.login.LoginFragment;
 
-public class ProfileFragment extends FortfremFragment {
-    private ProfileViewModel viewModel;
+public class OfferDetailsFragment extends FortfremFragment {
+    TextView tv;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        this.viewModel = ViewModelProviders.of(this).get(ProfileViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        View root = inflater.inflate(R.layout.fragment_offer_details, container, false);
+        tv = root.findViewById(R.id.txt);
+        Bundle args = getArguments();
+        if(args != null) {
+            tv.setText(args.getString("oid"));
+        }
         return root;
     }
 
@@ -34,6 +33,6 @@ public class ProfileFragment extends FortfremFragment {
         if(this.navController == null && getView() != null) {
             this.navController = Navigation.findNavController(getView());
         }
-        this.navController.navigate(R.id.navigation_login);
+
     }
 }
