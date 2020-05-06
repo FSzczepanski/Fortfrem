@@ -3,13 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_offers">
+    app:startDestination="@+id/navigation_offers"
+    android:name="androidx.navigation.fragment.NavHostFragment">
 
     <fragment
         android:id="@+id/navigation_offers"
         android:name="pl.aib.fortfrem.ui.offers.OffersFragment"
         android:label="@string/offers_tab_title"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/details_action"
+            app:destination="@id/navigation_offer_details"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_favourites"
@@ -27,11 +33,51 @@
         android:id="@+id/navigation_profile"
         android:name="pl.aib.fortfrem.ui.profile.ProfileFragment"
         android:label="@string/profile_tab_title"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard">
+
+        <action
+            android:id="@+id/go_to_login"
+            app:destination="@+id/navigation_login"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/mobile_navigation"
+            app:popUpToInclusive="true"
+            />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="pl.aib.fortfrem.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="pl.aib.fortfrem.ui.login.LoginFragment"
+        android:label="@string/log_in_screen_title"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/go_to_register"
+            app:destination="@id/navigation_register"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_register"
+        android:name="pl.aib.fortfrem.ui.register.RegisterFragment"
+        android:label="@string/register_screen_title"
+        tools:layout="@layout/fragment_register"
+        />
+
+    <fragment
+        android:id="@+id/navigation_offer_details"
+        android:name="pl.aib.fortfrem.ui.offerdetails.OfferDetailsFragment"
+        android:label="@string/register_screen_title"
+        tools:layout="@layout/fragment_offer_details">
+        <argument
+            android:name="oid"
+            app:argType="string"
+            app:nullable="false"
+            android:defaultValue=" "/>
+    </fragment>
 </navigation>

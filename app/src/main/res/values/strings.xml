@@ -10,4 +10,23 @@
     <string name="offer_image">Offer image</string>
     <string name="store_image">Store image</string>
     <string name="app_logo">App Logo</string>
+    <string name="log_in_screen_title">Zaloguj się</string>
+    <string name="log_in_form_title">Zaloguj się do Fortfrem</string>
+    <string name="email_input_label">Email</string>
+    <string name="password_input_label">Hasło</string>
+    <string name="forgot_password_label">Nie pamiętam hasła</string>
+
+    <string name="facebook_app_id">2985217481564884</string>
+    <string name="fb_login_protocol_scheme">fb2985217481564884</string>
+    <string name="login_email_button_text">Zaloguj się</string>
+    <string name="login_google_button_text">Kontynuuj z kontem Google</string>
+    <string name="register_link_label">Nie masz konta?</string>
+    <string name="register_link">Zarejestruj się</string>
+    <string name="login_terms_warn">Logując się akceptujesz Regulamin serwisu</string>
+    <string name="register_screen_title">Załóż konto</string>
+    <string name="agreement_text">Akceptuję Regulamin i Politykę Prywatności</string>
+    <string name="register_button_text">Zarejestruj</string>
+    <string name="confirm_password_label">Potwierdź hasło</string>
+    <string name="login_link_label">Masz już konto?</string>
+    <string name="login_link">Zaloguj się</string>
 </resources>

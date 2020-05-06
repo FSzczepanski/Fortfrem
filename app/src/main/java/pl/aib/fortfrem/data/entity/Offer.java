@@ -150,6 +150,6 @@ public class Offer {
     public String getDiscountPercentageString() {
         double difference = this.oldPrice - this.price;
         double percentage = (difference / this.oldPrice) * 100;
-        return String.format(Locale.getDefault(), "%.2f%%", percentage);
+        return String.format(Locale.getDefault(), "-%.2f%%", percentage);
     }
 }

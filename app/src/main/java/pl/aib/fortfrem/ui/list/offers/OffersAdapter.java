@@ -23,9 +23,13 @@ public class OffersAdapter extends RecyclerView.Adapter<OfferViewHolder> {
     @NonNull
     private List<Offer> data;
 
-    public OffersAdapter(@NonNull Context context) {
+    @NonNull
+    private OnOfferSelectedListener selectedListener;
+
+    public OffersAdapter(@NonNull Context context, @NonNull OnOfferSelectedListener selectedListener) {
         this.context = context;
         this.data = new ArrayList<>();
+        this.selectedListener = selectedListener;
     }
 
     public void setData(@NonNull List<Offer> data) {
@@ -37,7 +41,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OfferViewHolder> {
     @Override
     public OfferViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(this.context).inflate(R.layout.offers_list_item, parent, false);
-        return new OfferViewHolder(itemView);
+        return new OfferViewHolder(itemView, this.selectedListener);
     }
 
     @Override
