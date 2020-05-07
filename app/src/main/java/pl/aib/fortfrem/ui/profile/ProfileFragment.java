@@ -13,6 +13,9 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import pl.aib.fortfrem.R;
 import pl.aib.fortfrem.ui.FortfremFragment;
 import pl.aib.fortfrem.ui.favourites.FavouritesViewModel;
@@ -20,6 +23,7 @@ import pl.aib.fortfrem.ui.login.LoginFragment;
 
 public class ProfileFragment extends FortfremFragment {
     private ProfileViewModel viewModel;
+    private FirebaseUser user;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -29,14 +33,23 @@ public class ProfileFragment extends FortfremFragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         if(this.navController == null && getView() != null) {
             this.navController = Navigation.findNavController(getView());
         }
-        NavDirections authAction = ProfileFragmentDirections.goToAuth();
-        if(this.navController != null) {
-            this.navController.navigate(authAction);
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        this.user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user == null) {
+            NavDirections authAction = ProfileFragmentDirections.goToAuth();
+            if (this.navController != null) {
+                this.navController.navigate(authAction);
+            }
         }
     }
 }

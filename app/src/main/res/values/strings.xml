@@ -11,7 +11,7 @@
     <string name="store_image">Store image</string>
     <string name="app_logo">App Logo</string>
     <string name="log_in_screen_title">Zaloguj się</string>
-    <string name="log_in_form_title">Zaloguj się do Fortfrem</string>
+    <string name="log_in_form_title">Zaloguj się</string>
     <string name="email_input_label">Email</string>
     <string name="password_input_label">Hasło</string>
     <string name="forgot_password_label">Nie pamiętam hasła</string>
@@ -25,10 +25,19 @@
     <string name="login_terms_warn">Logując się akceptujesz Regulamin serwisu</string>
     <string name="register_screen_title">Załóż konto</string>
     <string name="agreement_text"><![CDATA[Akceptuję <a href=\'https://www.google.com\'>Regulamin serwisu</a> oraz <a href=\'https://www.google.com\'>Politykę prywatności</a>]]></string>
+    <string name="login_agreement_text"><![CDATA[Logując się akceptujesz <a href=\'https://www.google.com\'>Regulamin serwisu</a> oraz <a href=\'https://www.google.com\'>Politykę prywatności</a>]]></string>
     <string name="register_button_text">Zarejestruj</string>
     <string name="confirm_password_label">Potwierdź hasło</string>
     <string name="login_link_label">Masz już konto?</string>
     <string name="login_link">Zaloguj się</string>
     <string name="auth_screen_title">Konto</string>
     <string name="register_form_title">Załóż konto przez adres email</string>
+    <string name="field_required">To pole jest wymagane</string>
+    <string name="password_too_short">Podane hasło jest zbyt krótkie</string>
+    <string name="passwords_not_same">Podane hasła różnią się</string>
+    <string name="registration_error_unknown">Rejestracja nieudana</string>
+    <string name="email_not_valid">Podany adres email jest nieprawidłowy</string>
+    <string name="registration_successfull">Konto zostało utworzone. Możesz teraz zalogować się do serwisu</string>
+    <string name="login_failed_simple">Logowanie nieudane</string>
+    <string name="login_with_email_form_title">Zaloguj się adresem email</string>
 </resources>
