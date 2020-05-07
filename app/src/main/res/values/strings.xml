@@ -24,9 +24,11 @@
     <string name="register_link">Zarejestruj się</string>
     <string name="login_terms_warn">Logując się akceptujesz Regulamin serwisu</string>
     <string name="register_screen_title">Załóż konto</string>
-    <string name="agreement_text">Akceptuję Regulamin i Politykę Prywatności</string>
+    <string name="agreement_text"><![CDATA[Akceptuję <a href=\'https://www.google.com\'>Regulamin serwisu</a> oraz <a href=\'https://www.google.com\'>Politykę prywatności</a>]]></string>
     <string name="register_button_text">Zarejestruj</string>
     <string name="confirm_password_label">Potwierdź hasło</string>
     <string name="login_link_label">Masz już konto?</string>
     <string name="login_link">Zaloguj się</string>
+    <string name="auth_screen_title">Konto</string>
+    <string name="register_form_title">Załóż konto przez adres email</string>
 </resources>

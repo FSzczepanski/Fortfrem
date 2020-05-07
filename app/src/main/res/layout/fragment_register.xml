@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="20dp"
-            android:paddingBottom="20dp">
+            android:paddingBottom="10dp">
             <ImageView
                 android:id="@+id/app_logo"
                 android:layout_width="128dp"
@@ -37,17 +37,42 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.shobhitpuri.custombuttons.GoogleSignInButton
+                android:id="@+id/google"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="18sp"
+                android:text="@string/login_google_button_text"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="20dp"
             android:paddingBottom="20dp">
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/email_input_container"
+            <TextView
+                android:id="@+id/register_with_email_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:boxBackgroundMode="outline">
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/register_form_title"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_input_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/register_with_email_label"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:boxBackgroundMode="outline"
+                android:layout_marginTop="10dp">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email_input"
                     android:layout_width="200dp"
@@ -95,11 +120,21 @@
                 app:layout_constraintTop_toBottomOf="@id/confirm_password_input_container"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
                 <CheckBox
+                    android:id="@+id/agreement"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/agreement_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/agreement_text"/>
+                    android:text=""
+                    android:clickable="true"
+                    android:focusable="true" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -122,40 +157,6 @@
                 android:textSize="18sp"
                 android:background="@drawable/login_button_background"
                 />
-            <com.shobhitpuri.custombuttons.GoogleSignInButton
-                android:id="@+id/google"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/submit"
-                android:textSize="18sp"
-                android:text="@string/login_google_button_text"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="20dp"
-            android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="@string/login_link_label"/>
-            <TextView
-                android:id="@+id/login_link"
-                android:textSize="18sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="0dp"
-                android:textStyle="bold"
-                android:textColor="@color/link_color"
-                android:clickable="true"
-                android:text="@string/login_link"
-                android:focusable="true" />
-        </LinearLayout>
     </LinearLayout>
 </ScrollView>

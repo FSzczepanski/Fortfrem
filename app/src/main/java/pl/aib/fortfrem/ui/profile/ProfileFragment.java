@@ -34,6 +34,9 @@ public class ProfileFragment extends FortfremFragment {
         if(this.navController == null && getView() != null) {
             this.navController = Navigation.findNavController(getView());
         }
-        this.navController.navigate(R.id.navigation_login);
+        NavDirections authAction = ProfileFragmentDirections.goToAuth();
+        if(this.navController != null) {
+            this.navController.navigate(authAction);
+        }
     }
 }
