@@ -11,4 +11,6 @@
     <color name="ripple_color">#ddd</color>
     <color name="discount_label">#a00</color>
     <color name="link_color">#009FF8</color>
+    <color name="error_label_color">#DF1313</color>
+    <color name="screen_overlay_color">#dddd</color>
 </resources>

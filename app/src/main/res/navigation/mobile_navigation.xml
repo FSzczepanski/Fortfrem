@@ -36,11 +36,8 @@
         tools:layout="@layout/fragment_dashboard">
 
         <action
-            android:id="@+id/go_to_login"
-            app:destination="@+id/navigation_login"
-            app:launchSingleTop="true"
-            app:popUpTo="@+id/mobile_navigation"
-            app:popUpToInclusive="true"
+            android:id="@+id/go_to_auth"
+            app:destination="@+id/navigation_auth"
             />
 
     </fragment>
@@ -79,5 +76,11 @@
             app:argType="string"
             app:nullable="false"
             android:defaultValue=" "/>
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_auth"
+        android:name="pl.aib.fortfrem.ui.auth.AuthFragment"
+        android:label="@string/auth_screen_title"
+        tools:layout="@layout/fragment_auth">
     </fragment>
 </navigation>

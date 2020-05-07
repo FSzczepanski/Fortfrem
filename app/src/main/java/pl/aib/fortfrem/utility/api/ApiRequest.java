@@ -69,6 +69,7 @@ public class ApiRequest implements Response.Listener<String>, Response.ErrorList
 
     @Override
     public void onErrorResponse(VolleyError error) {
+        //TODO Handle Null Pointer
         String responseString = new String(error.networkResponse.data);
         String errorTag;
         try {
