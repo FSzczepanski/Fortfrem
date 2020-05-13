@@ -40,4 +40,14 @@
     <string name="registration_successfull">Konto zostało utworzone. Możesz teraz zalogować się do serwisu</string>
     <string name="login_failed_simple">Logowanie nieudane</string>
     <string name="login_with_email_form_title">Zaloguj się adresem email</string>
+    <string name="user_profile_picture_desc">User profile picture</string>
+    <string name="confirm_email_label">Potwierdź adres email</string>
+    <string name="edit_profile_menu_item">Edytuj profil</string>
+    <string name="settings_menu_item">Ustawienia</string>
+    <string name="app_info_menu_item">O aplikacji</string>
+    <string name="terms_of_use">Regulamin serwisu</string>
+    <string name="privacy_policy_menu_item">Polityka Prywatności</string>
+    <string name="log_out_menu_item">Wyloguj się</string>
+    <string name="back_button">back button</string>
+    <string name="option_icon">Option icon</string>
 </resources>
