@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#71b568</color>
+    <color name="colorPrimaryDark">#3e8235</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorSplash">#a4e89b</color>
     <color name="error_popover_background">#444</color>
     <color name="bottom_popover_text">#fff</color>
     <color name="bottom_popover_accept">#da0</color>
@@ -13,4 +14,9 @@
     <color name="link_color">#009FF8</color>
     <color name="error_label_color">#DF1313</color>
     <color name="screen_overlay_color">#dddd</color>
+    <color name="white_font">#fff</color>
+
+    <color name="action_bar">#f6f7f8</color>
+    <color name="background">#f7f8f9</color>
+
 </resources>

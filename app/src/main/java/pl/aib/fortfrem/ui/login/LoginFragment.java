@@ -38,7 +38,6 @@ import pl.aib.fortfrem.ui.listener.TextChangeListener;
 
 public class LoginFragment extends FortfremFragment {
     private LoginViewModel viewModel;
-    private TextView oAuthAgreement;
     private TextView loginAgreement;
     private Button googleSignInButton;
     private View progressBarContainer;
@@ -53,7 +52,6 @@ public class LoginFragment extends FortfremFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.viewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
         View root = inflater.inflate(R.layout.fragment_login, container, false);
-        this.oAuthAgreement = root.findViewById(R.id.oauth_agreement);
         this.loginAgreement = root.findViewById(R.id.login_agreement);
         this.googleSignInButton = root.findViewById(R.id.google);
         this.progressBarContainer = root.findViewById(R.id.progress_overlay);
@@ -98,10 +96,7 @@ public class LoginFragment extends FortfremFragment {
     }
 
     private void setupAgreements() {
-        this.oAuthAgreement.setText(Html.fromHtml(getAgreementText(), HtmlCompat.FROM_HTML_MODE_COMPACT));
         this.loginAgreement.setText(Html.fromHtml(getAgreementText(), HtmlCompat.FROM_HTML_MODE_COMPACT));
-
-        this.oAuthAgreement.setMovementMethod(LinkMovementMethod.getInstance());
         this.loginAgreement.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
