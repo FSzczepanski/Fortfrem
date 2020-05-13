@@ -20,8 +20,18 @@
     <fragment
         android:id="@+id/navigation_preferences"
         android:name="pl.aib.fortfrem.ui.preferences.PreferencesFragment"
-        android:label="@string/preferences_tab_title"
-        tools:layout="@layout/fragment_dashboard" />
+        android:label="@string/Preferences_tab_title"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_preferences_to_tabCategories"
+            app:destination="@id/tabCategories" />
+        <action
+            android:id="@+id/action_navigation_preferences_to_tabShops"
+            app:destination="@id/tabShops" />
+        <action
+            android:id="@+id/action_navigation_preferences_to_tabSubcategories"
+            app:destination="@id/tabSubcategories" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -34,4 +44,27 @@
         android:name="pl.aib.fortfrem.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/tabCategories"
+        android:name="pl.aib.fortfrem.ui.preferences.tabCategories.TabCategories"
+        android:label="tab_categories_fragment"
+        tools:layout="@layout/tab_categories_fragment" >
+        <action
+            android:id="@+id/action_tabCategories_to_categoriesFragment2"
+            app:destination="@id/categoriesFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/tabShops"
+        android:name="pl.aib.fortfrem.ui.preferences.tabShops.TabShops"
+        android:label="tab_shops_fragment"
+        tools:layout="@layout/tab_shops_fragment" />
+    <fragment
+        android:id="@+id/tabSubcategories"
+        android:name="pl.aib.fortfrem.ui.preferences.tabSubcategories.TabSubcategories"
+        android:label="tab_subcategories_fragment"
+        tools:layout="@layout/tab_subcategories_fragment" />
+    <fragment
+        android:id="@+id/categoriesFragment2"
+        android:name="pl.aib.fortfrem.ui.preferencesCategory.CategoriesFragment"
+        android:label="CategoriesFragment" />
 </navigation>

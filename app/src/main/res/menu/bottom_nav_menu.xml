@@ -14,7 +14,7 @@
     <item
         android:id="@+id/navigation_preferences"
         android:icon="@drawable/ic_settings_black_24dp"
-        android:title="@string/preferences_tab_title" />
+        android:title="@string/Preferences_tab_title" />
 
     <item
         android:id="@+id/navigation_profile"

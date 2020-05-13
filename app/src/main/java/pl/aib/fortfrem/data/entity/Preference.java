@@ -2,6 +2,7 @@ package pl.aib.fortfrem.data.entity;
 
 public class Preference {
     //później doda się potrzebne pola
+    private int id;
     private String title;
     public Preference(String t1) {
         title=t1;

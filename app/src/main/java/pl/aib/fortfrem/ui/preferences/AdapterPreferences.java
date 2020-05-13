@@ -1,58 +1,73 @@
 package pl.aib.fortfrem.ui.preferences;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.fragment.app.Fragment;
 
-import java.util.ArrayList;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+
+
+import org.jetbrains.annotations.NotNull;
 
 import pl.aib.fortfrem.R;
-import pl.aib.fortfrem.data.entity.Preference;
+import pl.aib.fortfrem.ui.preferences.tabCategories.TabCategories;
+import pl.aib.fortfrem.ui.preferences.tabShops.TabShops;
+import pl.aib.fortfrem.ui.preferences.tabSubcategories.TabSubcategories;
 
-public class AdapterPreferences extends RecyclerView.Adapter<AdapterPreferences.MyViewHolder>{
-    Context context;
-    private ArrayList preferencesList;
+public class AdapterPreferences extends FragmentPagerAdapter {
+    private final int ITEM_COUNT = 3;
 
+    @NonNull
+    private Context context;
 
-
+    public AdapterPreferences(@NonNull FragmentManager fm,  @NotNull Context context) {
+        super(fm);
+        this.context = context;
+    }
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.preferences_list_item,parent,false);
-        return new MyViewHolder(view);
-    }
-
-    public AdapterPreferences(Context context, ArrayList<Preference> preferencesList) {
-        this.context = context;
-        this.preferencesList = preferencesList;
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Preference currentItem = (Preference) preferencesList.get(position);
-        holder.myText1.setText(currentItem.getTitle());
-    }
-
-
-    @Override
-    public int getItemCount(){
-        return preferencesList.size();
-    }
-
-    public class MyViewHolder extends RecyclerView.ViewHolder{
-
-        TextView myText1;
-
-
-        public MyViewHolder(@NonNull View itemView){            super(itemView);
-            myText1 = itemView.findViewById(R.id.preference_title);
+    public Fragment getItem(int position) {
+        Fragment fragment;
+        if (position == 0) {
+            fragment = new TabCategories();
+        } else if(position == 1) {
+            fragment = new TabSubcategories();
         }
+        else {
+            fragment = new TabShops();
+        }
+        return fragment;
+    }
+
+    @Override
+    public int getCount() {
+        return ITEM_COUNT;
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        String title;
+        switch (position) {
+            case 0:
+                title = this.context.getString(R.string.tab_text_1);
+                break;
+            case 1:
+                title = this.context.getString(R.string.tab_text_2);
+                break;
+            case 2:
+                title = this.context.getString(R.string.tab_text_3);
+                break;
+            default:
+                title = null;
+                break;
+        }
+        return title;
     }
 }

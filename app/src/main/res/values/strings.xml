@@ -3,7 +3,7 @@
     <string name="title_notifications">Powiadomienia</string>
     <string name="offers_tab_title">Oferty</string>
     <string name="favourites_tab_title">Ulubione</string>
-    <string name="preferences_tab_title">Preferencje</string>
+    <string name="Preferences_tab_title">Obserwowane</string>
     <string name="profile_tab_title">Konto</string>
     <string name="example_popover_message">Example popover message</string>
     <string name="default_popover_accept">OK</string>
@@ -12,4 +12,8 @@
     <string name="app_logo">App Logo</string>
     <string name="preferencesStartMessage">W tej zakładce możesz ustawić własne preferencje ofert wyświetlanych na stronie głównej</string>
     <string name="preferencesDefaultTitle">Tytuł</string>
+
+    <string name="tab_text_1">Kategorie</string>
+    <string name="tab_text_2">Podkategorie</string>
+    <string name="tab_text_3">Sklepy</string>
 </resources>

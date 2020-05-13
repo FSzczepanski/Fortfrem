@@ -10,4 +10,6 @@
     <color name="borderGray">#ddd</color>
     <color name="ripple_color">#ddd</color>
     <color name="discount_label">#a00</color>
+    <color name="myWhite">#FFFFFF</color>
+    <color name="Buttons">#AFCBE1</color>
 </resources>
