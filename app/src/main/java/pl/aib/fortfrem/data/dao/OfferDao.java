@@ -39,6 +39,9 @@ public interface OfferDao {
     @Query("select * from offer where category = :subcategory and storeName = :storeName")
     List<Offer> findForStoreSubcategory(String storeName, String subcategory);
 
+    @Query("select * from offer where oid = :oid")
+    Offer findOne(String oid);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Offer... offers);
 

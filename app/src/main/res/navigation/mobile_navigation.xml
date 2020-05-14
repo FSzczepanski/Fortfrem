@@ -69,7 +69,7 @@
     <fragment
         android:id="@+id/navigation_offer_details"
         android:name="pl.aib.fortfrem.ui.offerdetails.OfferDetailsFragment"
-        android:label="@string/register_screen_title"
+        android:label="@string/offer_details_screen_label"
         tools:layout="@layout/fragment_offer_details">
         <argument
             android:name="oid"

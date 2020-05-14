@@ -18,6 +18,12 @@ public class Offer {
     @NonNull
     private String title;
 
+    private String description;
+
+    private String url;
+
+    private String storeId;
+
     @NonNull
     private String storeName;
 
@@ -141,15 +147,51 @@ public class Offer {
         this.startTime = startTime;
     }
 
-    public String getPricePLNString() {
-        int pln = this.price / 100;
-        int gr = this.price % 100;
-        return String.format(Locale.getDefault(),"%d.%02d PLN", pln, gr);
+    private String getPricePLNString(int price) {
+        int pln = price / 100;
+        int gr = price % 100;
+        return String.format(Locale.getDefault(),"%d,%02d PLN", pln, gr);
+    }
+
+    public String getCurrentPricePLNString() {
+        return getPricePLNString(this.price);
+    }
+
+    public String getOldPricePLNString() {
+        return getPricePLNString(this.oldPrice);
     }
 
     public String getDiscountPercentageString() {
         double difference = this.oldPrice - this.price;
         double percentage = (difference / this.oldPrice) * 100;
         return String.format(Locale.getDefault(), "-%.2f%%", percentage);
+    }
+
+    public String getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(String storeId) {
+        this.storeId = storeId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCategoryPresentLabel() {
+        return this.category.concat(" / ").concat(this.subcategory);
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

@@ -50,4 +50,9 @@
     <string name="log_out_menu_item">Wyloguj się</string>
     <string name="back_button">back button</string>
     <string name="option_icon">Option icon</string>
+    <string name="add_to_favourtes">Add to favourtes</string>
+    <string name="offer_details_screen_label">Szczegóły</string>
+    <string name="no_description">Brak opisu</string>
+    <string name="visit_offer_website">Zobacz w sklepie</string>
+    <string name="find_store">Znajdź sklep</string>
 </resources>
