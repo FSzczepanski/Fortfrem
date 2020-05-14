@@ -24,7 +24,7 @@ public class AdapterCategories extends RecyclerView.Adapter<AdapterCategories.My
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.categories_list_item,parent,false);
+        View view = inflater.inflate(R.layout.categories_list_item2,parent,false);
         return new MyViewHolder(view);
 
     }
@@ -39,6 +39,11 @@ public class AdapterCategories extends RecyclerView.Adapter<AdapterCategories.My
         Category currentItem = (Category) categoriesList.get(position);
         holder.myText1.setText(currentItem.getTitle());
         holder.myImage.setImageResource(currentItem.getImg());
+    }
+
+    public void filterList(ArrayList<Category> filteredList){
+        categoriesList = filteredList;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -58,4 +63,5 @@ public class AdapterCategories extends RecyclerView.Adapter<AdapterCategories.My
             myImage = itemView.findViewById(R.id.myImageview);
         }
     }
+
 }

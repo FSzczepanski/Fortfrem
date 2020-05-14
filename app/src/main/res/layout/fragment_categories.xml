@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.preferences.tabCategories.TabCategories">
+    tools:context=".ui.preferencesCategory.CategoriesFragment">
 
     <TextView
         android:id="@+id/text_dashboard"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Dodaj kategorie"
-        android:textSize="30sp"/>
+        android:text="Dodaj nową preferencję"
+        android:textSize="25sp"/>
 
         <EditText
             android:id="@+id/edittext"

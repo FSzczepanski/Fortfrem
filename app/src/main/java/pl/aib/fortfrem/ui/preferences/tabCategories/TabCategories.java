@@ -10,7 +10,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -22,6 +24,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -29,6 +32,7 @@ import java.util.ArrayList;
 import pl.aib.fortfrem.R;
 import pl.aib.fortfrem.data.entity.Category;
 import pl.aib.fortfrem.ui.FortfremFragment;
+import pl.aib.fortfrem.ui.preferences.PreferencesFragment;
 import pl.aib.fortfrem.ui.preferencesCategory.CategoriesFragment;
 import pl.aib.fortfrem.ui.preferencesCategory.CategoriesViewModel;
 
@@ -39,8 +43,9 @@ public class TabCategories extends FortfremFragment {
     private RecyclerView recyclerView;
     private AdapterTabCategories adapter;
     private ArrayList<Category> categoriesList;
-    private ImageButton button;
+    private FloatingActionButton button;
     private NavController navController;
+    private NavDirections categoriesFragmentDirections;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,8 +63,6 @@ public class TabCategories extends FortfremFragment {
         //this.resolveProgressBarColor(progressBar);
         this.initList(root.findViewById(R.id.listCategories));
         button = root.findViewById(R.id.buttonA);
-        buttonListener();
-
 
         return root;
     }
@@ -67,17 +70,31 @@ public class TabCategories extends FortfremFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(view);
+        if(this.navController == null && getView() != null) {
+            navController = Navigation.findNavController(getView());
+        }
+
+        button.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.categoriesFragment, null));
+
+        //CategoriesFragmentDirections.DetailsAction action = CategoriesFragmentDirections.detailsAction(0);
+        /*button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Test", Toast.LENGTH_SHORT).show();
+                if(navController != null) {
+                   navController.navigate(R.id.action_tabCategories_to_categoriesFragment);
+                  //  Navigation.findNavController(getView()).navigate(R.id.action_tabCategories_to_categoriesFragment);
+                }
+            }
+        });*/
     }
+
+
 
     private void initList(RecyclerView view) {
         this.recyclerView = view;
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        //manager.setOrientation(RecyclerView.VERTICAL);
-
-        //this.categoriesList.setHasFixedSize(false);
-
 
         if (getContext() != null) {
             adapter = new AdapterTabCategories(getActivity(), categoriesList);
@@ -86,32 +103,19 @@ public class TabCategories extends FortfremFragment {
 
     }
 
-    private static final String BACK_STACK_ROOT_TAG = "root_fragment";
 
-    private void buttonListener() {
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Test", Toast.LENGTH_SHORT).show();
-
-
-
-            }
-        });
-    }
 
      //temporary
     private void fillList() {
         categoriesList = new ArrayList();
         categoriesList.add(new Category("Odzież", R.drawable.ubrania));
-        categoriesList.add(new Category("Elektronika", R.drawable.app_logo));
+        categoriesList.add(new Category("Elektronika", R.drawable.rtv));
         categoriesList.add(new Category("Obuwie", R.drawable.app_logo));
-        categoriesList.add(new Category("Kosmetyki", R.drawable.app_logo));
-        categoriesList.add(new Category("Części Samochodowe", R.drawable.app_logo));
-        categoriesList.add(new Category("Meble", R.drawable.app_logo));
+        categoriesList.add(new Category("Kosmetyki", R.drawable.car));
+        categoriesList.add(new Category("Zabawki", R.drawable.car));
+        categoriesList.add(new Category("Meble", R.drawable.mebel));
         categoriesList.add(new Category("RTV", R.drawable.app_logo));
-        categoriesList.add(new Category("joo", R.drawable.app_logo));
+        categoriesList.add(new Category("joo", R.drawable.rtv));
 
     }
 }

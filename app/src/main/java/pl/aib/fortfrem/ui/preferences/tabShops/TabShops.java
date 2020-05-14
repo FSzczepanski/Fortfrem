@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -16,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -32,7 +35,7 @@ public class TabShops extends FortfremFragment {
     private RecyclerView recyclerView;
     private AdapterTabSubcategories adapter;
     private ArrayList<Category> shopsList;
-    private ImageButton button;
+    private FloatingActionButton button;
     private NavController navController;
 
     @Override
@@ -59,6 +62,11 @@ public class TabShops extends FortfremFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        if(this.navController == null && getView() != null) {
+            navController = Navigation.findNavController(getView());
+        }
+
+        button.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.categoriesFragment, null));
     }
     private void initList(RecyclerView view) {
         this.recyclerView = view;
@@ -87,11 +95,11 @@ public class TabShops extends FortfremFragment {
     //temporary
     private void fillList() {
         shopsList = new ArrayList<Category>();
-        shopsList.add(new Category("EURO RTV agd",R.drawable.ubrania));
-        shopsList.add(new Category("Biedronka",R.drawable.app_logo));
-        shopsList.add(new Category("Tesco",R.drawable.app_logo));
+        shopsList.add(new Category("EURO RTV agd",R.drawable.rtv));
+        shopsList.add(new Category("Biedronka",R.drawable.mebel));
+        shopsList.add(new Category("Tesco",R.drawable.car));
         shopsList.add(new Category("X-kom",R.drawable.ubrania));
-        shopsList.add(new Category("kucciap",R.drawable.app_logo));
+        shopsList.add(new Category("kucciap",R.drawable.rtv));
         shopsList.add(new Category("Piotr I Paweł",R.drawable.app_logo));
         shopsList.add(new Category("media",R.drawable.ubrania));
 

@@ -16,4 +16,7 @@
     <string name="tab_text_1">Kategorie</string>
     <string name="tab_text_2">Podkategorie</string>
     <string name="tab_text_3">Sklepy</string>
+    <string name="observed_shops">Obserwowane Sklepy</string>
+    <string name="observed_subcategories">Obserwowane Podkategorie</string>
+    <string name="observed_categories">Obserwowane Kategorie</string>
 </resources>

@@ -23,14 +23,14 @@
         android:label="@string/Preferences_tab_title"
         tools:layout="@layout/fragment_dashboard" >
         <action
-            android:id="@+id/action_navigation_preferences_to_tabCategories"
-            app:destination="@id/tabCategories" />
-        <action
             android:id="@+id/action_navigation_preferences_to_tabShops"
             app:destination="@id/tabShops" />
         <action
             android:id="@+id/action_navigation_preferences_to_tabSubcategories"
             app:destination="@id/tabSubcategories" />
+        <action
+            android:id="@+id/action_navigation_preferences_to_tabCategories"
+            app:destination="@id/tabCategories" />
     </fragment>
 
     <fragment
@@ -50,21 +50,48 @@
         android:label="tab_categories_fragment"
         tools:layout="@layout/tab_categories_fragment" >
         <action
-            android:id="@+id/action_tabCategories_to_categoriesFragment2"
-            app:destination="@id/categoriesFragment2" />
+            android:id="@+id/action_tabCategories_to_categoriesFragment"
+            app:destination="@id/categoriesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/tabCategories"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/tabShops"
         android:name="pl.aib.fortfrem.ui.preferences.tabShops.TabShops"
         android:label="tab_shops_fragment"
-        tools:layout="@layout/tab_shops_fragment" />
+        tools:layout="@layout/tab_shops_fragment" >
+        <action
+            android:id="@+id/action_tabShops_to_categoriesFragment"
+            app:destination="@id/categoriesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/tabShops"
+            app:popUpToInclusive="true"/>
+    </fragment>
     <fragment
         android:id="@+id/tabSubcategories"
         android:name="pl.aib.fortfrem.ui.preferences.tabSubcategories.TabSubcategories"
         android:label="tab_subcategories_fragment"
-        tools:layout="@layout/tab_subcategories_fragment" />
+        tools:layout="@layout/tab_subcategories_fragment" >
+        <action
+            android:id="@+id/action_tabSubcategories_to_categoriesFragment"
+            app:destination="@id/categoriesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/tabSubcategories"
+            app:popUpToInclusive="true"/>
+    </fragment>
     <fragment
-        android:id="@+id/categoriesFragment2"
+        android:id="@+id/categoriesFragment"
         android:name="pl.aib.fortfrem.ui.preferencesCategory.CategoriesFragment"
-        android:label="CategoriesFragment" />
+        android:label="Dodaj preferencję"
+        tools:layout="@layout/fragment_categories" />
 </navigation>

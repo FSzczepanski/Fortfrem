@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -16,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -32,7 +35,7 @@ public class TabSubcategories extends FortfremFragment {
     private RecyclerView recyclerView;
     private AdapterTabSubcategories adapter;
     private ArrayList<Category> subcategoriesList;
-    private ImageButton button;
+    private FloatingActionButton button;
     private NavController navController;
 
     @Override
@@ -59,6 +62,11 @@ public class TabSubcategories extends FortfremFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        if(this.navController == null && getView() != null) {
+            navController = Navigation.findNavController(getView());
+        }
+
+        button.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.categoriesFragment, null));
     }
 
     private void initList(RecyclerView view) {
@@ -89,11 +97,11 @@ public class TabSubcategories extends FortfremFragment {
     private void fillList() {
         subcategoriesList = new ArrayList<Category>();
         subcategoriesList.add(new Category("Koszulki",R.drawable.ubrania));
-        subcategoriesList.add(new Category("Buty Sportowe",R.drawable.app_logo));
+        subcategoriesList.add(new Category("Buty Sportowe",R.drawable.car));
         subcategoriesList.add(new Category("Gry xbox",R.drawable.app_logo));
-        subcategoriesList.add(new Category("Gry ps4",R.drawable.app_logo));
+        subcategoriesList.add(new Category("Gry ps4",R.drawable.rtv));
         subcategoriesList.add(new Category("Gry PC",R.drawable.app_logo));
-        subcategoriesList.add(new Category("Buty zimowe",R.drawable.app_logo));
+        subcategoriesList.add(new Category("Buty zimowe",R.drawable.rtv));
         subcategoriesList.add(new Category("Gry",R.drawable.app_logo));
 
     }
