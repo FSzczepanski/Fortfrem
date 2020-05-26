@@ -7,7 +7,7 @@ Final project for Interaction human-computer laboratories.
 **Fortfrem** is made for  **bargain hunters!** who love great shopping
 **Fortfrem** is opportunity to find best promotions available for you!
 **Fortfrem** will notify you if some promotion matches your personalisation raises!
-More information soon!
+More information soon! 
 
  * Realized by 3 programmers -Konrad, Anna and Filip.
  * Application written in **Android Studio**
